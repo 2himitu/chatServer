@@ -30,13 +30,7 @@ public class ChatController {
 		return chatRepository.mFindByRoomNum(roomNum)
 				.subscribeOn(Schedulers.boundedElastic());
 	}
-	
-	@RequestMapping("/chat_room/roomNum")
-	@ResponseBody
-	public String showChat() {
-		
-		return "index";
-	}
+
 	
 	@CrossOrigin
 	@PostMapping("/chat")

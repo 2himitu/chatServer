@@ -1,7 +1,8 @@
+//let username = sessionStorage.getItem('loginMemberNickName');
 
 let username = prompt("아이디를 입력하세요");
-
-let roomNum = prompt("채팅방 번호를 입력하세요");
+let roomNum = 1;
+//let roomNum = prompt("채팅방 번호를 입력하세요");
 
 document.querySelector("#username").innerHTML = username;
 
@@ -42,7 +43,7 @@ function getReceiverMsgBox(data){
 
   return `<div class="received_withd_msg">
   <p>${data.msg}</p>
-  <span class="time_date"> ${convertTime}/<b>${data.sender}</b></span>
+  <span class="time_date"> ${convertTime} / <b>${data.sender}</b></span>
   </div>`;
 }
 //내가 쓴 메시지 가져오기
@@ -71,6 +72,22 @@ function initYourMessage(data){
   document.documentElement.scrollTop = document.body.scrollHeight;
 
 }
+
+// 넘어온 값이 빈값인지 체크합니다.
+ // !value 하면 생기는 논리적 오류를 제거하기 위해
+// 명시적으로 value == 사용
+// [], {} 도 빈값으로 처리
+var isEmpty = function(value){
+  if( value == "" ||
+  value == null ||
+  value == undefined ||
+  ( value != null && typeof value == "object" && !Object.keys(value).length )
+   ){
+    return true;
+    }else{
+      return false;
+    }
+  };
 
 //대화입력 함수
 function addMessage(){
